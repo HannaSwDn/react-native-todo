@@ -4,7 +4,12 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 const InputBar = (props) => {
   return (
     <View style={styles.inputContainer}>
-      <TextInput style={styles.input} onChangeText={(todoInput => props.textChange(todoInput))} value={props.todoInput} />
+      <TextInput 
+        style={styles.input}
+        onChangeText={(todoInput) => props.textChange(todoInput)}
+        value={props.todoInput}
+      />
+
       <TouchableOpacity style={styles.addButton} onPress={props.addNewToDo}>
         <Text style={styles.addButtonText}>+</Text>
       </TouchableOpacity>
