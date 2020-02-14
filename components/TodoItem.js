@@ -19,6 +19,12 @@ export default class TodoItem extends React.Component {
         <Text style={(todoItem.done) ? { color: 'green' } : { color: 'red' }}>
           {todoItem.title}
         </Text>
+
+        <Button
+          title="Remove"
+          color={(todoItem.done) ? 'rgba(255, 0, 0, 1)' : 'rgba(200, 0, 0, .5)' }
+          onPress={() => this.props.removeTodo()}
+        />
       </TouchableOpacity>
     )
   }

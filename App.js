@@ -46,6 +46,14 @@ export default class App extends React.Component {
     this.setState({todos})
   }
 
+  removeTodo(item) {
+    let todos = this.state.todos;
+
+    todos = todos.filter((todo) => todo.id !== item.id)
+
+    this.setState({todos})
+  }
+
   render() {
     let statusbar = (Platform.OS == 'ios') ? <View style={styles.statusbar}></View> : <View></View>;
 
@@ -67,7 +75,7 @@ export default class App extends React.Component {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => {
             return(
-              <TodoItem todoItem={item} toggleDone={() => this.toggleDone(item)} />
+              <TodoItem todoItem={item} toggleDone={() => this.toggleDone(item)} removeTodo={() => this.removeTodo(item)} />
             )
           }}
         />
